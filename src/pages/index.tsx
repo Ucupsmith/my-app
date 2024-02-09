@@ -15,7 +15,7 @@ const itterasi = [
     src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
     alt: "",
     deskripsi: "FOTO KUCING 2",
-    kotak: "asaa"
+   
   },
   {
     src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
