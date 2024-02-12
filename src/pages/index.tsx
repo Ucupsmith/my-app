@@ -53,7 +53,14 @@ const itterasi = [
 
 
 const index = () => {
-    
+  
+  const [btnColor, setColor] = useState(false)
+  
+  const eventHandler =()=>{
+    setColor(!btnColor)
+  }
+  
+  
   return (
     <>
 
@@ -101,17 +108,19 @@ const index = () => {
       <div className="container justify-between content-center bg-white flex max-w-full p-5 gap-10 my-16 flex-wrap">
         
       { itterasi.map((value, index) => {
-          
-      
-       const [color, chChol] = useState('white')
-
-       return (
+        
+        
+        
+        //  const turn:any | number = [clicker,jsClick, 0]
+        const [clicker, jsClick]= useState('grey')
+        
+        return (
           <div className="align-center p-3 border w-96 ">
 
-            <div onClick={()=>{
-              chChol('blue')
-            }} className="container-img rounded-lg">
-                  
+            <div onClick={eventHandler}
+
+            className="container-img rounded-lg cursor-pointer">
+                
                 <Image  
                     
                     key={index}
@@ -120,13 +129,12 @@ const index = () => {
                     imgclassname="w-96"
                     
                   />
-        
+        {/* style={{backgroundColor: `${btnColor}`, transition:'.3s ease', cursor:'pointer'}}  */}
             </div>  
-        
+      
+                <div className={`${btnColor?"bg-gray-600":"bg-white"} min-h-52 p-5`} >
 
-                <div style={{backgroundColor: `${color}`}} className="bg-black-400 min-h-52 p-5">
-                  
-                  
+            
                   <h1 className=" text-black">{value.deskripsi}</h1>
             
                 </div>
