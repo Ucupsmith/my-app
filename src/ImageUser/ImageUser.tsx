@@ -12,19 +12,21 @@ interface PlayUser{
         last: string,
     }
     age: number
-    email: {
-        selfImail: string,
-        coorpMail: string,
-        linkedIn: string
-    }
+}
+
+interface Mail{
+    mail:{
+        mainMail:string,
+        secondMail:string,
+        coorpMail:string
+    }[]
 }
 
 export const UserPlay = (props:PlayUser)=>{
     return(
         <>
-            <h1>{props.name.first} {props.name.last} {props.age} {props.email.selfImail}
-            {props.email.coorpMail} {props.email.linkedIn}
-            </h1>  
+            <h1>{props.name.first} {props.name.last} {props.age}</h1>
+              
         </>
     )
 }

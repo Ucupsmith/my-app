@@ -11,34 +11,36 @@ const itterasi = [
       "Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertambahnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah",
   },
 
-  // {
-  //   src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
-  //   alt: "",
-  //   deskripsi: "FOTO KUCING 2",
-  // },
-  // {
-  //   src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
-  //   alt: "",
-  //   deskripsi: "FOTO KUCING 3",
-  // },
+  {
+    src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
+    alt: "",
+    deskripsi:
+      "Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertambahnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah",
+  },
 
-  // {
-  //   src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
-  //   alt: "",
-  //   deskripsi: "FOTO KUCING 4",
-  // },
+  {
+    src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
+    alt: "",
+    deskripsi:
+      "Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertambahnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah",
+  },
 
-  // {
-  //   src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
-  //   alt: "",
-  //   deskripsi: "FOTO KUCING 4",
-  // },
+  {
+    src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
+    alt: "",
+    deskripsi:
+      "Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertambahnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah",
+  },
 
-  // {
-  //   src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
-  //   alt: "",
-  //   deskripsi: "FOTO KUCING 4",
-  // },
+  {
+    src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
+    alt: "",
+    deskripsi:
+      "Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertambahnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah",
+  },
+
+
+
 ];
 
 const user = {
@@ -60,24 +62,29 @@ const ImageJumb = {
 // const [btnChg, chCol] = useState('white');
 
 const index = () => {
-  const [btnColor, setColor] = useState(false);
-  const [Colorc, setColorCol] = useState(false);
+  const [btnColor, setColor] = useState(Array(itterasi.length).fill(false));
+  
+  // const [Colorc, setColorCol] = useState(false);
 
-  const eventHandler = () => {
-    setColor(!btnColor);
-  };
-
-  const eventHanz = () => {
-    setColorCol(!Colorc);
-  };
+  const eventhandler = (index:any)=>{
+    const newonClick = [...btnColor]
+    newonClick[index] = !newonClick[index]
+    setColor(newonClick[index])
+    return newonClick
+  }
+  
+  // const eventHandly = ()=>{
+  //   setColor(!btnColor)
+  // }
+  // const eventHanz = () => {
+  //   setColorCol(!Colorc);
+  // };
 
   const chUser = {
     first: 'Aqil Nauffan',
     last:'Marjana',
     age: 20,
-    selfImail: 'akilnauffancozz@gmail.com',
-    coorpMail: 'info@seeds',
-    linkedIn: 'https://www.linkedin.com/in/aqil-nauffan-marjana/'
+   
   }
 
   return (
@@ -112,25 +119,17 @@ const index = () => {
 
       <div className="container max-w-full">
         <div className="bg-slate-500  min-h-52 my-5 p-10">
-          <div className="container-fluid border p-32 w-full flex flex-wrap">
+          <div className="container-fluid border p-20 w-full flex flex-wrap">
 
-            <h1 className="text-2xl ">ollo</h1>
-            <div className="border p-5 aling-center w-full justify-around  text-blue-300"> 
-
-              
+            <div className="border p-5 flex flex-wrap align-center w-full justify-between  text-blue-300 text-wrap"> 
+            
               <ImageUser 
                 source="https://media.licdn.com/dms/image/D5603AQFq6_CwcK0NVQ/profile-displayphoto-shrink_400_400/0/1695409307087?e=1713398400&v=beta&t=oOsL0hBVOoqm4Z5Ipizy-Ur98bLMGFDN8ClSZh4j12A"
                 alter=""
                 userimgcl=""
               />
 
-              <UserPlay 
-                
-                name={chUser}
-                age={20}
-                email={chUser}
-              /> 
-
+              <h1 className="p text-pretty text-4xl capitalize font-medium">name :{chUser.first}</h1>
 
             </div>
 
@@ -146,35 +145,45 @@ const index = () => {
         </div>
       </div>
 
-   
 
-      <div className="container justify-evenly content-center bg-white flex max-w-full p-5 gap-10 my-16 flex-wrap">
+      <div className="container-fluid">
+          <div className="row">
+            <div className="col justify-center text-center">
+                <h1 className="font-sans text-3xl capitalize p-3">anak kucing</h1>
+            </div>
+          </div>
+      </div>
+
+      <div className="container justify-evenly content-center bg-white max-w-full p-5 gap-10 my-16 flex flex-wrap">
         
-        <div className="container border w-96 p-5" onClick={eventHanz}>
+        <div className="container border w-96 p-5" onClick={()=>{
+          eventhandler('')
+        }}>
 
          <img 
           className="p-5 avatar w-96 border cursor-pointer"
           src={user.imageUrl}
           />
           {/* row h-45 border p-5 */}
-          <div className={`${Colorc?"bg-gray-600":"bg-white"} p-5 border h-52 cursor-pointer`}>
+          <div className={`${btnColor?"bg-gray-600":"bg-white"} p-5 border h-52 cursor-pointer`}>
 
             <h1 className= "text-black w-full text-wrap">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi asperiores numquam minima magni amet aliquam alias nobis doloribus ex pariatur, deserunt maiores necessitatibus vitae dolore quos excepturi ipsam quae beatae!bhhhvhvhv
             </h1>
-                   
+
           </div>
 
-        </div>
+      </div>
 
-        {itterasi.map((value, index) => {
-          //  const turn:any | number = [clicker,jsClick, 0]
-          const [clicker, jsClick] = useState("grey");
-
+        {itterasi.map((value,index) =>{
+      
           return (
-            <div className="align-center p-3 border w-96 ">
+            <div key={index} className="align-center p-3 border w-96 ">
               <div
-                onClick={eventHandler}
+                onClick={()=>{
+                  eventhandler('')
+                }}
+
                 className="container-img rounded-lg cursor-pointer"
               >
                 <Image
@@ -183,19 +192,19 @@ const index = () => {
                   alt={value.alt}
                   imgclassname="p-5 border w-96"
                 />
-                {/* style={{backgroundColor: `${btnColor}`, transition:'.3s ease', cursor:'pointer'}}  */}
+            
               </div>
 
               <div
                 className={`${
-                  btnColor ? "bg-gray-600" : "bg-white"
+                  btnColor? "bg-gray-600" : "bg-white"
                 } min-h-52 p-5 border cursor-pointer`}
               >
                 <h1 className=" text-black">{value.deskripsi}</h1>
               </div>
             </div>
           );
-        })}
+        })} 
       
 
       </div>
