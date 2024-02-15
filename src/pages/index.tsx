@@ -43,7 +43,6 @@ const index = () => {
         return 'bg-white'
       }
     })
-
     setColors(newbtn)
     setColos(newbtns)
   }
