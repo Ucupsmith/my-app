@@ -1,47 +1,9 @@
 import React from "react";
 import Image from "@/Component/Image";
 import { useState, useEffect } from "react";
-import ImageUser, { UserPlay } from "@/ImageUser/imageUser";
+import itterasi from "@/Data/itterasi"
+import ProductCard from "@/ProductCard/ProductCard"
 
-const itterasi = [
-  {
-    src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
-    alt: "",
-    deskripsi:
-      "Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertambahnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah",
-  },
-
-  {
-    src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
-    alt: "",
-    deskripsi:
-      "Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertambahnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah",
-  },
-
-  {
-    src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
-    alt: "",
-    deskripsi:
-      "Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertambahnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah",
-  },
-
-  {
-    src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
-    alt: "",
-    deskripsi:
-      "Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertambahnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah",
-  },
-
-  {
-    src: "https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg",
-    alt: "",
-    deskripsi:
-      "Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertambahnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah",
-  },
-
-
-
-];
 
 const user = {
   name: "jesica comita",
@@ -62,24 +24,30 @@ const ImageJumb = {
 // const [btnChg, chCol] = useState('white');
 
 const index = () => {
-  const [btnColor, setColor] = useState(Array(itterasi.length).fill(false));
-  
-  // const [Colorc, setColorCol] = useState(false);
 
-  const eventhandler = (index:any)=>{
-    const newonClick = [...btnColor]
-    newonClick[index] = !newonClick[index]
-    setColor(newonClick[index])
-    return newonClick
+  // const [btnColor, setColor] = useState(Array(itterasi.length).fill(false));
+  // const [color, setchColor] = useState(false)
+  // const [colors, setchColors] = useState(false)
+
+  const [updateCol, setColors] = useState([''])
+ 
+  
+  
+  // const clickHandler = ()=>{
+  //   setchColor(!color)
+  // }
+  
+  // const clickHandlers = ()=>{
+  //   setchColors(!colors)
+  // }
+
+  const btnClicker = (Imageindex:any)=>{
+    const newbtn = [...updateCol]
+    newbtn[Imageindex] = newbtn[Imageindex] === 'bg-white' ? 'bg-grey' : 'bg-white'
+    setColors(newbtn)
+ 
   }
   
-  // const eventHandly = ()=>{
-  //   setColor(!btnColor)
-  // }
-  // const eventHanz = () => {
-  //   setColorCol(!Colorc);
-  // };
-
   const chUser = {
     first: 'Aqil Nauffan',
     last:'Marjana',
@@ -122,12 +90,12 @@ const index = () => {
           <div className="container-fluid border p-20 w-full flex flex-wrap">
 
             <div className="border p-5 flex flex-wrap align-center w-full justify-between  text-blue-300 text-wrap"> 
-            
+{/*             
               <ImageUser 
                 source="https://media.licdn.com/dms/image/D5603AQFq6_CwcK0NVQ/profile-displayphoto-shrink_400_400/0/1695409307087?e=1713398400&v=beta&t=oOsL0hBVOoqm4Z5Ipizy-Ur98bLMGFDN8ClSZh4j12A"
                 alter=""
                 userimgcl=""
-              />
+              /> */}
 
               <h1 className="p text-pretty text-4xl capitalize font-medium">name :{chUser.first}</h1>
 
@@ -154,34 +122,44 @@ const index = () => {
           </div>
       </div>
 
+
       <div className="container justify-evenly content-center bg-white max-w-full p-5 gap-10 my-16 flex flex-wrap">
         
         <div className="container border w-96 p-5" onClick={()=>{
-          eventhandler('')
+          btnClicker(index)
         }}>
 
          <img 
           className="p-5 avatar w-96 border cursor-pointer"
           src={user.imageUrl}
           />
+
           {/* row h-45 border p-5 */}
-          <div className={`${btnColor?"bg-gray-600":"bg-white"} p-5 border h-52 cursor-pointer`}>
+          {/* <div className={`${updateCol"bg-gray-600":"bg-white"} p-5 border h-52 cursor-pointer`}>
 
             <h1 className= "text-black w-full text-wrap">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi asperiores numquam minima magni amet aliquam alias nobis doloribus ex pariatur, deserunt maiores necessitatibus vitae dolore quos excepturi ipsam quae beatae!bhhhvhvhv
             </h1>
 
-          </div>
+          </div> */}
 
       </div>
+      
+      
+        <ProductCard 
+          source="https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg"
+          deskripsi="Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertambahnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah"
+          alt="testing"
+        />
+        
 
         {itterasi.map((value,index) =>{
       
           return (
-            <div key={index} className="align-center p-3 border w-96 ">
-              <div
+            <div className="align-center p-3 border w-96 ">
+              <div key={index}
                 onClick={()=>{
-                  eventhandler('')
+                  btnClicker(index)
                 }}
 
                 className="container-img rounded-lg cursor-pointer"
@@ -196,8 +174,7 @@ const index = () => {
               </div>
 
               <div
-                className={`${
-                  btnColor? "bg-gray-600" : "bg-white"
+                className={`${updateCol[index] === 'bg-white'? "bg-gray-600" : "bg-white"
                 } min-h-52 p-5 border cursor-pointer`}
               >
                 <h1 className=" text-black">{value.deskripsi}</h1>
@@ -205,9 +182,13 @@ const index = () => {
             </div>
           );
         })} 
+
+
       
 
       </div>
+
+
     </>
   );
 };

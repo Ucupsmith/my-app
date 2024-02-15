@@ -1,6 +1,5 @@
 import React from "react";
 import index from "@/pages/index"
-import {useState} from "react"
 
 interface IImage {
   src: any;
