@@ -3,6 +3,7 @@ import Image from "@/Component/Image";
 import { useState, useEffect } from "react";
 import itterasi from "@/Data/itterasi"
 import ProductCard from "@/ProductCard/ProductCard"
+import ImageUser from "@/ImageUser/ImageUser";
 
 
 const user = {
@@ -30,22 +31,12 @@ const index = () => {
   // const [colors, setchColors] = useState(false)
 
   const [updateCol, setColors] = useState([''])
- 
-  
-  
-  // const clickHandler = ()=>{
-  //   setchColor(!color)
-  // }
-  
-  // const clickHandlers = ()=>{
-  //   setchColors(!colors)
-  // }
+
 
   const btnClicker = (Imageindex:any)=>{
     const newbtn = [...updateCol]
     newbtn[Imageindex] = newbtn[Imageindex] === 'bg-white' ? 'bg-grey' : 'bg-white'
     setColors(newbtn)
- 
   }
   
   const chUser = {
@@ -90,12 +81,12 @@ const index = () => {
           <div className="container-fluid border p-20 w-full flex flex-wrap">
 
             <div className="border p-5 flex flex-wrap align-center w-full justify-between  text-blue-300 text-wrap"> 
-{/*             
+            
               <ImageUser 
                 source="https://media.licdn.com/dms/image/D5603AQFq6_CwcK0NVQ/profile-displayphoto-shrink_400_400/0/1695409307087?e=1713398400&v=beta&t=oOsL0hBVOoqm4Z5Ipizy-Ur98bLMGFDN8ClSZh4j12A"
                 alter=""
                 userimgcl=""
-              /> */}
+              />
 
               <h1 className="p text-pretty text-4xl capitalize font-medium">name :{chUser.first}</h1>
 
@@ -125,14 +116,14 @@ const index = () => {
 
       <div className="container justify-evenly content-center bg-white max-w-full p-5 gap-10 my-16 flex flex-wrap">
         
-        <div className="container border w-96 p-5" onClick={()=>{
+        {/* <div className="container border w-96 p-5" onClick={()=>{
           btnClicker(index)
-        }}>
+        }}> */}
 
-         <img 
+         {/* <img 
           className="p-5 avatar w-96 border cursor-pointer"
           src={user.imageUrl}
-          />
+          /> */}
 
           {/* row h-45 border p-5 */}
           {/* <div className={`${updateCol"bg-gray-600":"bg-white"} p-5 border h-52 cursor-pointer`}>
@@ -143,14 +134,14 @@ const index = () => {
 
           </div> */}
 
-      </div>
+      {/* </div> */}
       
-      
+{/*       
         <ProductCard 
           source="https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg"
           deskripsi="Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertambahnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah"
           alt="testing"
-        />
+        /> */}
         
 
         {itterasi.map((value,index) =>{
