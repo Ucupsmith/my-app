@@ -26,17 +26,26 @@ const ImageJumb = {
 
 const index = () => {
 
-  // const [btnColor, setColor] = useState(Array(itterasi.length).fill(false));
-  // const [color, setchColor] = useState(false)
-  // const [colors, setchColors] = useState(false)
 
-  const [updateCol, setColors] = useState([''])
-
+  const [updateCol, setColors] = useState(itterasi.map(()=>'bg-white'))
+  const [updateCols,setColos] = useState(Array(itterasi.length).fill('0'))
 
   const btnClicker = (Imageindex:any)=>{
-    const newbtn = [...updateCol]
-    newbtn[Imageindex] = newbtn[Imageindex] === 'bg-white' ? 'bg-grey' : 'bg-white'
+    // const newbtns = [...updateCols]
+    // newbtns[Imageindex] = newbtns[Imageindex] === 'bg-white' ? 'bg-grey' : 'bg-white'
+    const newbtns = [...updateCols]
+    const newbtn = updateCol.map((value,index)=> {
+      if(index === Imageindex){
+        newbtns[index]++
+        return newbtns[index] % 2 === 1? 'bg-gray-600':'bg-white'
+      }else{
+        newbtns[index] = 0
+        return 'bg-white'
+      }
+    })
+
     setColors(newbtn)
+    setColos(newbtns)
   }
   
   const chUser = {
@@ -163,19 +172,16 @@ const index = () => {
                 />
             
               </div>
-
+              {/* updateCol[index] === 'bg-white'? "bg-gray-600" : "bg-white"
+                } min-h-52 p-5 border cursor-pointer */}
               <div
-                className={`${updateCol[index] === 'bg-white'? "bg-gray-600" : "bg-white"
-                } min-h-52 p-5 border cursor-pointer`}
+                className={`${updateCol[index]} min-h-52 p-5 border cursor-pointer `}
               >
                 <h1 className=" text-black">{value.deskripsi}</h1>
               </div>
             </div>
           );
         })} 
-
-
-      
 
       </div>
 
