@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProductData = [
+ const ProductData = [
 
   {
     id : 1,

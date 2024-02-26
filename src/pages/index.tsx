@@ -8,9 +8,9 @@ import DataKucing from "@/Data/DataKucing"
 import CardKucing from "@/Component/CardKucing";
 import FormHandle from "@/FormHandle/FormHandle"
 import Form from "@/FormHandle/Form";
-import ProductList from "@/Component/ProductList";
+import {ProductList} from "@/Component/ProductList";
 import ProductData from "@/Data/ProductData";
-// import ProductCreate from "@/Component/ProductCreate"
+import {ProductCreate} from "@/Component/ProductCreate"
 
 
 const user = {
@@ -26,7 +26,7 @@ const ImageJumb = {
 }
 
   
-const ProductCreate = () => {
+const Production = () => {
   
   const initialState = {
     product:'',
@@ -146,8 +146,11 @@ const index = () => {
     return 
   }
   
-
-
+  
+  const [products, setProduct] = useState(ProductData)
+  const onCreateProduct = (props:string | any)=>{ 
+    setProduct([...products, props])
+  }
   return (
     <>
       <nav className="bg-white min-h-11 border ">
@@ -275,45 +278,24 @@ const index = () => {
              </div>
         </div>
 
+        <Production
+        />
+
+        
         <ProductCreate
+          onCreateProduct={onCreateProduct}
         />
         
-
+       
         <ProductList
+          products={products}
         />
+       
      
       
       <div className="container justify-evenly content-center bg-white max-w-full p-5 gap-10 my-16 flex flex-wrap">
         
-        {/* <div className="container border w-96 p-5" onClick={()=>{
-          btnClicker(index)
-        }}> */}
-
-         {/* <img 
-          className="p-5 avatar w-96 border cursor-pointer"
-          src={user.imageUrl}
-          /> */}
-
-          {/* row h-45 border p-5 */}
-          {/* <div className={`${updateCol"bg-gray-600":"bg-white"} p-5 border h-52 cursor-pointer`}>
-
-            <h1 className= "text-black w-full text-wrap">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi asperiores numquam minima magni amet aliquam alias nobis doloribus ex pariatur, deserunt maiores necessitatibus vitae dolore quos excepturi ipsam quae beatae!bhhhvhvhv
-            </h1>
-
-          </div> */}
-
-      {/* </div> */}
-      
-       
-{/*       
-        hnya ukuran komponen, Anda ingin mengabstraksikan kode sebanyak returnmungkin dari pernyataan. Ini biasanya memerlukan pengaturan output yang Anda inginkan dalam variabel. Caranya cukup mudah"
-          alt="testing"
-        <ProductCard 
-          source="https://asset.kompas.com/crops/AqnwKTVQ7_mSneRdZQt-slGkiFE=/0x0:1920x1280/750x500/data/photo/2021/12/02/61a8477b01ca9.jpg"
-          deskripsi="Hal terakhir yang akan kita lakukan adalah merapikan kode kita sedikit. Seiring bertamba
-        /> */}
-        
+    
         {itterasi.map((value,index) =>{
       
           return (
@@ -329,14 +311,14 @@ const index = () => {
                   key={index}
                   src={value.src}
                   alt={value.alt}
-                  imgclassname="p-5 border w-96"
+                  imgclassname="p-5 border w-96 hover:scale-75"
                 />
             
               </div>
               {/* updateCol[index] === 'bg-white'? "bg-gray-600" : "bg-white"
                 } min-h-52 p-5 border cursor-pointer */}
               <div
-                className={`${updateCol[index]} min-h-52 p-5 border cursor-pointer `}
+                className={`${updateCol[index]} min-h-52 p-5 transition hover:bg-slate-300 border cursor-pointer `}
               >
                 <h1 className=" text-black">{value.deskripsi}</h1>
               </div>
@@ -344,17 +326,13 @@ const index = () => {
           );
         })} 
 
-            
-      
-     
-        
-      
+
       </div>
 
 
-      <div className="container absolute flex p-5 space-x-10 border-blue-500  max-w-full rounded">
+      {/* <div className="container absolute flex p-5 space-x-10 border-blue-500  max-w-full rounded">
 
-          {DataKucing.map((value,index)=>{
+        {DataKucing.map((value,index)=>{
                 return(
                   <>
                     <CardKucing
@@ -367,13 +345,14 @@ const index = () => {
                    
                   
                 )  
-              })}
-       </div>
-
-
-   
+          })}
+        </div>
+      <div/>   */}
+      <div className="items-center flex justify-end w-full px-4 bg-black rounded-md ">
+            <button type="button" className='bg-blue-400 rounded px-2'>add product</button>
+        </div>
     </>
-
+      
   );
 };
 
